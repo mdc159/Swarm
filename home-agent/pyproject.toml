@@ -1,0 +1,29 @@
+[project]
+name = "karaoke-home-agent"
+version = "0.1.0"
+description = "Home agent worker for Swarm karaoke pipeline"
+requires-python = ">=3.11"
+dependencies = [
+  "boto3>=1.34.0",
+  "pydantic>=2.6.0",
+  "pydantic-settings>=2.2.0",
+  "requests>=2.31.0",
+  "yt-dlp>=2024.12.0",
+]
+
+[project.optional-dependencies]
+local-split = [
+  # Demucs brings torch; keep optional for lightweight installs.
+  "demucs==4.0.1",
+  "soundfile>=0.12.0",
+]
+
+[project.scripts]
+karaoke-home-agent = "karaoke_agent.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.21.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/karaoke_agent"]

@@ -1,0 +1,10 @@
+{
+  "venvPath": "home-agent",
+  "venv": ".venv",
+  "pythonVersion": "3.11",
+  "typeCheckingMode": "basic",
+  "include": [
+    "home-agent/src",
+    "runpod-worker"
+  ]
+}
